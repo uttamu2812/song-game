@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "title": "Kala Chashma",
+        "prop": "Sunglasses",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/kala%20chashma"
+    },
+    {
+        "id": 2,
+        "title": "Bindiya Chamkegi",
+        "prop": "Bindiya",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/bindiya%20chamkegi"
+    },
+    {
+        "id": 3,
+        "title": "Joota Hai Japani",
+        "prop": "Shoe",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/joota%20hai%20japani"
+    },
+    {
+        "id": 4,
+        "title": "Mere Haathon Mein Chudiyaan",
+        "prop": "Bangles",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/mere%20haathon%20mein%20chudiyaan"
+    },
+    {
+        "id": 5,
+        "title": "Jhumka Gira Re",
+        "prop": "Jhumka",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/jhumka%20gira%20re"
+    },
+    {
+        "id": 6,
+        "title": "Genda Phool",
+        "prop": "Phool",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/genda%20phool"
+    },
+    {
+        "id": 7,
+        "title": "Kajra Re",
+        "prop": "Kajra",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/kajra%20re"
+    },
+    {
+        "id": 8,
+        "title": "Chand Sifarish",
+        "prop": "Chand",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/chand%20sifarish"
+    },
+    {
+        "id": 9,
+        "title": "Morni Banke",
+        "prop": "Morni",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/morni%20banke"
+    },
+    {
+        "id": 10,
+        "title": "Ghungroo Toot Gaye",
+        "prop": "Ghungroo",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/ghungroo%20toot%20gaye"
+    },
+    {
+        "id": 11,
+        "title": "Dupatta Tera",
+        "prop": "Dupatta",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/dupatta%20tera"
+    },
+    {
+        "id": 12,
+        "title": "Laung Laachi",
+        "prop": "Laung",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/laung%20laachi"
+    },
+    {
+        "id": 13,
+        "title": "Kala Til",
+        "prop": "Til",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/kala%20til"
+    },
+    {
+        "id": 14,
+        "title": "Aankhon Ki Gustakhiyan",
+        "prop": "Aankhen",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/aankhon%20ki%20gustakhiyan"
+    },
+    {
+        "id": 15,
+        "title": "Chandni O Meri Chandni",
+        "prop": "Chandni",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/chandni%20o%20meri%20chandni"
+    },
+    {
+        "id": 16,
+        "title": "Laal Sari Pore Konna",
+        "prop": "Laal Sari",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/laal%20sari%20pore%20konna"
+    },
+    {
+        "id": 17,
+        "title": "Chokhe Kajol Dilo",
+        "prop": "Kajol",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/chokhe%20kajol%20dilo"
+    },
+    {
+        "id": 18,
+        "title": "Jhum Jhum Jhum Nupur Baje",
+        "prop": "Nupur",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/jhum%20jhum%20jhum%20nupur%20baje"
+    },
+    {
+        "id": 19,
+        "title": "Phool Koli Re",
+        "prop": "Phool",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/phool%20koli%20re"
+    },
+    {
+        "id": 20,
+        "title": "Chand Heriche Chandmukh Tar",
+        "prop": "Chand",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/chand%20heriche%20chandmukh%20tar"
+    },
+    {
+        "id": 21,
+        "title": "Elo Re Boishakh",
+        "prop": "Boishakh",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/elo%20re%20boishakh"
+    },
+    {
+        "id": 22,
+        "title": "O Shyam Kalo",
+        "prop": "Kalo",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/o%20shyam%20kalo"
+    },
+    {
+        "id": 23,
+        "title": "Tomar Khola Hawa",
+        "prop": "Hawa",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/tomar%20khola%20hawa"
+    },
+    {
+        "id": 24,
+        "title": "Bhalobashi Bhalobashi",
+        "prop": "Bhalobasha",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/bhalobashi%20bhalobashi"
+    },
+    {
+        "id": 25,
+        "title": "Ami Je Ke Tomar",
+        "prop": "Ayna",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/ami%20je%20ke%20tomar"
+    },
+    {
+        "id": 26,
+        "title": "Sundari Komola Nache",
+        "prop": "Komola",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/sundari%20komola%20nache"
+    },
+    {
+        "id": 27,
+        "title": "Chulbuli Chul",
+        "prop": "Chul",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/chulbuli%20chul"
+    },
+    {
+        "id": 28,
+        "title": "Ek Je Chhilo Raja",
+        "prop": "Raja",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/ek%20je%20chhilo%20raja"
+    },
+    {
+        "id": 29,
+        "title": "Ekti Cinemar Golpo",
+        "prop": "Cinema",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/ekti%20cinemar%20golpo"
+    },
+    {
+        "id": 30,
+        "title": "Moner Manush",
+        "prop": "Mon",
+        "language": "Bengali",
+        "spotify": "https://open.spotify.com/search/moner%20manush"
+    }
+]
