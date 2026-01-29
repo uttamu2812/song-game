@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindi Song Hook Step Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    font-size: 8vw;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+  }
+  .card {
+    width: 95vw;
+    max-width: 4000px;
+    height: auto;
+    min-height: 500px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+  .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .card h2 {
+    margin: 15px 0;
+    font-size: 8vw;
+    font-weight: bold;
+  }
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  .buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff4081;
+    color: #fff;
+  }
+  .buttons button:hover {
+    background-color: #e73370;
+  }
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 10vw;
+    }
+    .card {
+      width: 95vw;
+      padding: 15px;
+    }
+    .card img {
+      height: 200px;
+    }
+    .card h2 {
+      font-size: 10vw;
+    }
+    .buttons button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+  @media (min-width: 1200px) {
+    h1 {
+      font-size: 4em;
+    }
+    .card {
+   
+      max-width: none;
+    }
+    .card img {
+      height: 400px;
+    }
+    .card h2 {
+      font-size: 4em;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+  
+    
+    <div class="card" id="songCard">
+      <img src="https://via.placeholder.com/350x300?text=Jhoome+Jo+Pathaan+Poster" alt="Hook Step">
+      <h2 id="songTitle">Jhoome Jo Pathaan</h2>
+      <a id="songLink" href="https://open.spotify.com/search/jhoome%20jo%20pathaan" target="_blank">Listen on Spotify</a>
+      <div class="buttons">
+        <button onclick="prevSong()">Previous</button>
+        <button onclick="nextSong()">Next</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+const songs = [
+  {
+    title: "Jhoome Jo Pathaan",
+    img: "https://img.youtube.com/vi/YxWlaYCA8MU/hqdefault.jpg",
+    link: "https://open.spotify.com/search/jhoome%20jo%20pathaan"
+  },
+  {
+    title: "Kala Chashma",
+    img: "https://img.youtube.com/vi/k4yXQkG2s1E/hqdefault.jpg",
+    link: "https://open.spotify.com/search/kala%20chashma"
+  },
+  {
+    title: "Aankh Marey",
+    img: "https://img.youtube.com/vi/ZlRZWXG_KTc/hqdefault.jpg",
+    link: "https://open.spotify.com/search/aankh%20marey"
+  },
+  {
+    title: "Dilbar",
+    img: "https://img.youtube.com/vi/JFcgOboQZ08/hqdefault.jpg",
+    link: "https://open.spotify.com/search/dilbar"
+  },
+  {
+    title: "Saaki Saaki",
+    img: "https://img.youtube.com/vi/yY2Rd5cxGos/hqdefault.jpg",
+    link: "https://open.spotify.com/search/saaki%20saaki"
+  },
+  {
+    title: "Toba Toba",
+    img: "https://img.youtube.com/vi/LK7-_dgAVQE/hqdefault.jpg",
+    link: "https://open.spotify.com/search/toba%20toba"
+  },
+  {
+    title: "Baby Ko Bass Pasand Hai",
+    img: "https://img.youtube.com/vi/LKPcUfp2QqM/hqdefault.jpg",
+    link: "https://open.spotify.com/search/baby%20ko%20bass%20pasand%20hai"
+  },
+  {
+    title: "Naacho Naacho (Naatu Naatu Hindi)",
+    img: "https://img.youtube.com/vi/OsU0CGZoV8E/hqdefault.jpg",
+    link: "https://open.spotify.com/search/naacho%20naacho%20naatu%20naatu%20hindi"
+  },
+  {
+    title: "Badtameez Dil",
+    img: "https://img.youtube.com/vi/II2EO3Nw4m0/hqdefault.jpg",
+    link: "https://open.spotify.com/search/badtameez%20dil"
+  },
+  {
+    title: "Chammak Challo",
+    img: "https://img.youtube.com/vi/oAVhUAaVCVQ/hqdefault.jpg",
+    link: "https://open.spotify.com/search/chammak%20challo"
+  },
+  {
+    title: "Ghungroo",
+    img: "https://img.youtube.com/vi/qFkNATtc3mc/hqdefault.jpg",
+    link: "https://open.spotify.com/search/ghungroo"
+  },
+  {
+    title: "Kar Gayi Chull",
+    img: "https://img.youtube.com/vi/NTHz9ephYTw/hqdefault.jpg",
+    link: "https://open.spotify.com/search/kar%20gayi%20chull"
+  },
+  {
+    title: "The Disco Song",
+    img: "https://img.youtube.com/vi/6n9zrs7jN3I/hqdefault.jpg",
+    link: "https://open.spotify.com/search/the%20disco%20song"
+  },
+  {
+    title: "Sunny Sunny",
+    img: "https://img.youtube.com/vi/VnC9sWZ2kEw/hqdefault.jpg",
+    link: "https://open.spotify.com/search/sunny%20sunny"
+  },
+  {
+    title: "Kajra Re",
+    img: "https://img.youtube.com/vi/4dsFQFCvVGU/hqdefault.jpg",
+    link: "https://open.spotify.com/search/kajra%20re"
+  },
+  {
+    title: "What Jhumka?",
+    img: "https://img.youtube.com/vi/4gZ2I0qjZtI/hqdefault.jpg",
+    link: "https://open.spotify.com/search/what%20jhumka"
+  },
+  {
+    title: "Hay Garmi",
+    img: "https://img.youtube.com/vi/8nH5N6t1pAk/hqdefault.jpg",
+    link: "https://open.spotify.com/search/hay%20garmi"
+  },
+  {
+    title: "Ek Pal Ka Jeena",
+    img: "https://img.youtube.com/vi/0nFJm3nQZfM/hqdefault.jpg",
+    link: "https://open.spotify.com/search/ek%20pal%20ka%20jeena"
+  },
+  {
+    title: "Kaho Naa Pyaar Hai",
+    img: "https://img.youtube.com/vi/hTepYTUidY0/hqdefault.jpg",
+    link: "https://open.spotify.com/search/kaho%20naa%20pyaar%20hai"
+  },
+  {
+    title: "Fevicol Se",
+    img: "https://img.youtube.com/vi/7Zxg3q2V2JU/hqdefault.jpg",
+    link: "https://open.spotify.com/search/fevicol%20se"
+  },
+  {
+    title: "Teri Baaton Mein Aisa Uljha Jiya",
+    img: "https://img.youtube.com/vi/ow77NqggH-0/hqdefault.jpg",
+    link: "https://open.spotify.com/search/teri%20bato%20me%20aisa%20uljha%20jiya"
+  },
+  {
+    title: "Sheila Ki Jawani",
+    img: "https://img.youtube.com/vi/ZyhrYis509A/hqdefault.jpg",
+    link: "https://open.spotify.com/search/sheila%20ki%20jawani"
+  },
+  {
+    title: "Genda Phool",
+    img: "https://img.youtube.com/vi/ZXtj9RzC6vU/hqdefault.jpg",
+    link: "https://open.spotify.com/search/genda%20phool"
+  },
+  {
+    title: "Jugnu",
+    img: "https://img.youtube.com/vi/l3bwIKoZfY0/hqdefault.jpg",
+    link: "https://open.spotify.com/search/jugnu"
+  },
+  {
+    title: "Aaj Ki Raat",
+    img: "https://img.youtube.com/vi/smJYz2Z6t9k/hqdefault.jpg",
+    link: "https://open.spotify.com/search/aaj%20ki%20raat"
+  },
+  {
+    title: "Aayi Nahi",
+    img: "https://img.youtube.com/vi/AlvUu9Zb6pY/hqdefault.jpg",
+    link: "https://open.spotify.com/search/aayi%20nahi"
+  }
+];
+
+
+
+let currentIndex = 0;
+
+function showSong(index) {
+  const card = document.getElementById('songCard');
+  document.getElementById('songTitle').innerText = songs[index].title;
+  document.getElementById('songLink').href = songs[index].link;
+  card.querySelector('img').src = songs[index].img;
+}
+
+function nextSong() {
+  currentIndex = (currentIndex + 1) % songs.length;
+  showSong(currentIndex);
+}
+
+function prevSong() {
+  currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+  showSong(currentIndex);
+}
+
+// Initialize with first song
+showSong(0);
+</script>
+
+</body>
+</html>
