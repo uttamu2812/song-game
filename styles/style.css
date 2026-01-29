@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.game-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-roll {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-roll:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-roll:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.btn-roll:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-roll.rolling {
+    animation: diceRoll 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes diceRoll {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+    }
+    25% {
+        transform: rotateX(180deg) rotateY(0deg) rotateZ(45deg) scale(1.1);
+    }
+    50% {
+        transform: rotateX(0deg) rotateY(180deg) rotateZ(-45deg) scale(1.15);
+    }
+    75% {
+        transform: rotateX(-90deg) rotateY(-90deg) rotateZ(90deg) scale(1.05);
+    }
+    100% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+    }
+}
+
+.btn-show {
+    background: #3498db;
+    color: white;
+    font-size: 16px;
+}
+
+.btn-show:hover {
+    background: #2980b9;
+    transform: scale(1.02);
+}
+
+.btn-play {
+    background: #1DB954;
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.btn-play:hover {
+    background: #1ed760;
+    transform: scale(1.02);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.roll-result {
+    background: #f0f0f0;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+.song-number-display {
+    margin-bottom: 20px;
+}
+
+.song-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #667eea;
+    margin: 0;
+}
+
+.song-info {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.song-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.song-details strong {
+    color: #667eea;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .song-number {
+        font-size: 36px;
+    }
+}

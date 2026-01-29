@@ -58,7 +58,7 @@
     {
         "id": 9,
         "title": "Morni Banke",
-        "prop": "Morni",
+        "prop": "Morni / Peacock Feather",
         "language": "Hindi",
         "spotify": "https://open.spotify.com/search/morni%20banke"
     },
@@ -86,7 +86,7 @@
     {
         "id": 13,
         "title": "Kala Til",
-        "prop": "Til",
+        "prop": "Til / Black Dot",
         "language": "Hindi",
         "spotify": "https://open.spotify.com/search/kala%20til"
     },
@@ -106,107 +106,79 @@
     },
     {
         "id": 16,
-        "title": "Laal Sari Pore Konna",
-        "prop": "Laal Sari",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/laal%20sari%20pore%20konna"
+        "title": "Radha",
+        "prop": "Flute",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/radha%20student%20of%20the%20year"
     },
     {
         "id": 17,
-        "title": "Chokhe Kajol Dilo",
-        "prop": "Kajol",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/chokhe%20kajol%20dilo"
+        "title": "Hookah Bar",
+        "prop": "Fake Hookah / Bottle",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/hookah%20bar"
     },
     {
         "id": 18,
-        "title": "Jhum Jhum Jhum Nupur Baje",
-        "prop": "Nupur",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/jhum%20jhum%20jhum%20nupur%20baje"
+        "title": "Jai Ho",
+        "prop": "Indian Flag",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/jai%20ho"
     },
     {
         "id": 19,
-        "title": "Phool Koli Re",
-        "prop": "Phool",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/phool%20koli%20re"
+        "title": "Kala Kauwa Kaat Khaye",
+        "prop": "Black Cloth / Feather",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/kala%20kauwa%20kaat%20khaye"
     },
     {
         "id": 20,
-        "title": "Chand Heriche Chandmukh Tar",
-        "prop": "Chand",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/chand%20heriche%20chandmukh%20tar"
+        "title": "Chudi Jo Khanki Haathon Mein",
+        "prop": "Chudi (Bangles)",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/chudi%20jo%20khanki"
     },
     {
         "id": 21,
-        "title": "Elo Re Boishakh",
-        "prop": "Boishakh",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/elo%20re%20boishakh"
+        "title": "Balam Pichkari",
+        "prop": "Water Gun",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/balam%20pichkari"
     },
     {
         "id": 22,
-        "title": "O Shyam Kalo",
-        "prop": "Kalo",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/o%20shyam%20kalo"
+        "title": "Desi Girl",
+        "prop": "Hair Comb / Jhumka",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/desi%20girl"
     },
     {
         "id": 23,
-        "title": "Tomar Khola Hawa",
-        "prop": "Hawa",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/tomar%20khola%20hawa"
+        "title": "Badtameez Dil",
+        "prop": "Jacket / Heart",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/badtameez%20dil"
     },
     {
         "id": 24,
-        "title": "Bhalobashi Bhalobashi",
-        "prop": "Bhalobasha",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/bhalobashi%20bhalobashi"
+        "title": "Ek Ladki Ko Dekha Toh Aisa Laga",
+        "prop": "Aankh (Eyes)",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/ek%20ladki%20ko%20dekha"
     },
     {
         "id": 25,
-        "title": "Ami Je Ke Tomar",
-        "prop": "Ayna",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/ami%20je%20ke%20tomar"
+        "title": "Mera Piya Ghar Aaya",
+        "prop": "Ghar (House)",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/mera%20piya%20ghar%20aaya"
     },
     {
         "id": 26,
-        "title": "Sundari Komola Nache",
-        "prop": "Komola",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/sundari%20komola%20nache"
-    },
-    {
-        "id": 27,
-        "title": "Chulbuli Chul",
-        "prop": "Chul",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/chulbuli%20chul"
-    },
-    {
-        "id": 28,
-        "title": "Ek Je Chhilo Raja",
-        "prop": "Raja",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/ek%20je%20chhilo%20raja"
-    },
-    {
-        "id": 29,
-        "title": "Ekti Cinemar Golpo",
-        "prop": "Cinema",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/ekti%20cinemar%20golpo"
-    },
-    {
-        "id": 30,
-        "title": "Moner Manush",
-        "prop": "Mon",
-        "language": "Bengali",
-        "spotify": "https://open.spotify.com/search/moner%20manush"
+        "title": "Sweety Tera Drama",
+        "prop": "Phone",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/sweety%20tera%20drama"
     }
 ]
