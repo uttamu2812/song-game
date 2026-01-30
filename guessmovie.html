@@ -17,7 +17,7 @@
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 20px;
+    padding: 0;
   }
   .container {
     width: 100%;
@@ -26,81 +26,96 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
   }
   .card {
-    width: 90vw;
-    height: 85vh;
+    width: 100%;
+    height: 100vh;
     background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    border-radius: 0;
+    box-shadow: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px;
+    padding: 0;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     position: relative;
   }
   .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transform: scale(0.995);
   }
   .card::before {
     content: 'Click to reveal answer';
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 0.9em;
+    top: 30px;
+    right: 30px;
+    font-size: 1.2em;
     color: #999;
-    background: #f0f0f0;
-    padding: 8px 12px;
+    background: rgba(240, 240, 240, 0.9);
+    padding: 12px 20px;
     border-radius: 20px;
+    z-index: 10;
   }
   .symbols-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 40px;
-    max-height: 50vh;
-    overflow-y: auto;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+    padding: 60px 40px;
+    overflow: hidden;
     animation: fadeIn 0.6s ease;
   }
   .symbol-item {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 80vw;
+    max-height: 80vh;
   }
   .symbol-item img {
-    max-width: 200px;
-    max-height: 200px;
+    width: 100%;
+    height: 100%;
+    max-width: 80vw;
+    max-height: 80vh;
     object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
   }
   .counter {
-    font-size: 2vw;
-    color: #999;
-    margin-top: auto;
+    position: absolute;
+    bottom: 100px;
+    font-size: 1.5em;
+    color: #666;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 20px;
+    border-radius: 20px;
     animation: fadeIn 0.6s ease 0.4s backwards;
   }
   .navigation {
+    position: absolute;
+    bottom: 30px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    gap: 20px;
+    padding: 0 20px;
     animation: fadeIn 0.6s ease 0.6s backwards;
   }
   .nav-btn {
     padding: 15px 30px;
-    font-size: 1.5em;
+    font-size: 1.3em;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
+    z-index: 10;
   }
   .btn-prev {
     background-color: #667eea;
@@ -135,7 +150,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     animation: fadeInModal 0.3s ease;
   }
   .modal.show {
@@ -145,17 +160,19 @@
   }
   .modal-content {
     background-color: #fff;
-    padding: 50px;
+    padding: 60px;
     border-radius: 20px;
     text-align: center;
-    max-width: 700px;
+    max-width: 900px;
     width: 90vw;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
     animation: slideUp 0.4s ease;
+    max-height: 90vh;
+    overflow-y: auto;
   }
   .modal-image {
     max-width: 100%;
-    max-height: 400px;
+    max-height: 600px;
     object-fit: contain;
     margin-bottom: 30px;
     border-radius: 15px;
@@ -189,7 +206,7 @@
       opacity: 0;
     }
     to {
-      opacity: 0.6;
+      opacity: 0.7;
     }
   }
   @keyframes slideUp {
@@ -203,35 +220,38 @@
     }
   }
   @media (max-width: 768px) {
-    .card {
-      width: 95vw;
-      height: 90vh;
-      padding: 30px;
+    .card::before {
+      font-size: 0.95em;
+      padding: 10px 16px;
+      top: 20px;
+      right: 20px;
     }
     .symbols-container {
-      gap: 20px;
-      margin-bottom: 30px;
+      padding: 80px 20px 140px 20px;
+      gap: 30px;
     }
     .symbol-item img {
-      max-width: 150px;
-      max-height: 150px;
+      max-width: 90vw;
+      max-height: 70vh;
     }
     .counter {
-      font-size: 1.5vw;
+      font-size: 1.1em;
+      bottom: 90px;
+    }
+    .navigation {
+      bottom: 15px;
+      gap: 10px;
+      padding: 0 10px;
     }
     .nav-btn {
       padding: 12px 20px;
-      font-size: 1.2em;
-    }
-    .card::before {
-      font-size: 0.8em;
-      padding: 6px 10px;
+      font-size: 1em;
     }
     .modal-content {
       padding: 40px 20px;
     }
     .modal-image {
-      max-height: 300px;
+      max-height: 400px;
     }
   }
 </style>
@@ -259,41 +279,69 @@
 
 <script>
 const movies = [
-  { symbols: "1.webp", name: "1.webp" },
-  { symbols: "2.webp", name: "2.webp" },
-  { symbols: "3.webp", name: "3.webp" },
-  { symbols: "4.webp", name: "4.webp" },
-  { symbols: "5.webp", name: "5.webp" },
-  { symbols: "6.webp", name: "6.webp" },
-  { symbols: "7.webp", name: "7.webp" },
-  { symbols: "8.webp", name: "8.webp" },
-  { symbols: "9.webp", name: "9.webp" },
-  { symbols: "10.webp", name: "10.webp" },
-  { symbols: "11.webp", name: "11.webp" },
-  { symbols: "12.webp", name: "12.webp" },
-  { symbols: "13.webp", name: "13.webp" },
-  { symbols: "14.webp", name: "14.webp" },
-  { symbols: "15.webp", name: "15.webp" },
-  { symbols: "16.webp", name: "16.webp" },
-  { symbols: "17.webp", name: "17.webp" },
-  { symbols: "18.webp", name: "18.webp" },
-  { symbols: "19.webp", name: "19.webp" },
-  { symbols: "20.webp", name: "20.webp" },
-  { symbols: "21.webp", name: "21.webp" },
-  { symbols: "22.webp", name: "22.webp" },
-  { symbols: "23.webp", name: "23.webp" },
-  { symbols: "24.webp", name: "24.webp" },
-  { symbols: "25.webp", name: "25.webp" },
-  { symbols: "26.webp", name: "26.webp" },
-  { symbols: "27.webp", name: "27.webp" },
-  { symbols: "28.webp", name: "28.webp" },
-  { symbols: "29.webp", name: "29.webp" },
-  { symbols: "30.webp", name: "30.webp" }
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/1.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/1.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/2.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/2.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/3.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/3.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/4.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/4.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/5.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/5.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/6.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/6.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/7.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/7.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/8.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/8.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/9.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/9.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/10.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/10.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/11.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/11.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/12.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/12.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/13.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/13.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/14.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/14.webp" 
+  },
+  { 
+    symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/15.webp", 
+    name: "https://raw.githubusercontent.com/uttamu2812/song-game/main/moviename/15.webp" 
+  }
 ];
 
 let currentIndex = 0;
-const symbolFolder = './assets/symbols/';
-const movieNameFolder = './assets/moviename/';
 
 function showMovie(index) {
   currentIndex = index;
@@ -306,12 +354,12 @@ function showMovie(index) {
   symbolItem.className = 'symbol-item';
   
   const img = document.createElement('img');
-  img.src = `${symbolFolder}${movie.symbols}`;
+  img.src = movie.symbols;
   img.alt = 'Symbol';
   img.onerror = function() {
     this.alt = 'Symbol not found';
-    this.style.width = '100px';
-    this.style.height = '100px';
+    this.style.width = '200px';
+    this.style.height = '200px';
   };
   
   symbolItem.appendChild(img);
@@ -341,7 +389,7 @@ function prevMovie(event) {
 function revealAnswer() {
   const movie = movies[currentIndex];
   const movieImage = document.getElementById('movieImagePopup');
-  movieImage.src = `${movieNameFolder}${movie.name}`;
+  movieImage.src = movie.name;
   movieImage.alt = 'Movie Name';
   document.getElementById('answerModal').classList.add('show');
 }
