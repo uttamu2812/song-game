@@ -19,6 +19,28 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 0;
   }
+  .nav-links {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+  }
+  .nav-links a {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .nav-links a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
   .container {
     width: 100%;
     height: 100vh;
@@ -58,6 +80,49 @@
     padding: 12px 20px;
     border-radius: 20px;
     z-index: 10;
+  }
+  .timer-container {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  .timer-label {
+    font-size: 0.8em;
+    color: rgba(255,255,255,0.8);
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .timer-display {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+  }
+  .timer-display.warning {
+    animation: pulse 0.5s infinite;
+    color: #ffeb3b;
+  }
+  .timer-display.critical {
+    animation: pulse 0.3s infinite;
+    color: #ff6b6b;
+  }
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
   }
   .symbols-container {
     display: flex;
@@ -220,11 +285,33 @@
     }
   }
   @media (max-width: 768px) {
+    .nav-links {
+      top: 10px;
+      left: 10px;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .nav-links a {
+      padding: 8px 15px;
+      font-size: 0.9em;
+    }
     .card::before {
       font-size: 0.95em;
       padding: 10px 16px;
       top: 20px;
       right: 20px;
+    }
+    .timer-container {
+      width: 85px;
+      height: 85px;
+      top: 20px;
+      left: 20px;
+    }
+    .timer-display {
+      font-size: 1.8em;
+    }
+    .timer-label {
+      font-size: 0.7em;
     }
     .symbols-container {
       padding: 80px 20px 140px 20px;
@@ -257,8 +344,18 @@
 </style>
 </head>
 <body>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="hookstep.html">🎬 Hook Step</a>
+  </div>
+
   <div class="container">
     <div class="card" id="movieCard" onclick="revealAnswer()">
+      <div class="timer-container">
+        <div class="timer-label">⏱️ Time</div>
+        <div class="timer-display" id="timerDisplay">25</div>
+      </div>
+
       <div class="symbols-container" id="symbolsDisplay"></div>
       <div class="counter" id="counter"></div>
       
@@ -278,6 +375,36 @@
   </div>
 
 <script>
+// Audio context for timer sounds
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+function playTimerSound(frequency = 800, duration = 0.2) {
+  const oscillator = audioContext.createOscillator();
+  const gainNode = audioContext.createGain();
+  
+  oscillator.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  oscillator.frequency.value = frequency;
+  oscillator.type = 'sine';
+  
+  gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+  
+  oscillator.start(audioContext.currentTime);
+  oscillator.stop(audioContext.currentTime + duration);
+}
+
+function playWarningSound() {
+  playTimerSound(600, 0.15);
+  setTimeout(() => playTimerSound(600, 0.15), 150);
+}
+
+function playTimeoutSound() {
+  playTimerSound(400, 0.3);
+  setTimeout(() => playTimerSound(300, 0.3), 350);
+}
+
 const movies = [
   { 
     symbols: "https://raw.githubusercontent.com/uttamu2812/song-game/main/symbol/1.webp", 
@@ -342,6 +469,9 @@ const movies = [
 ];
 
 let currentIndex = 0;
+let timerInterval = null;
+let timeLeft = 25;
+const TIMER_DURATION = 25;
 
 function showMovie(index) {
   currentIndex = index;
@@ -370,6 +500,47 @@ function showMovie(index) {
   // Update button states
   document.querySelector('.btn-prev').disabled = index === 0;
   document.querySelector('.btn-next').disabled = index === movies.length - 1;
+  
+  resetTimer();
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  timeLeft = TIMER_DURATION;
+  updateTimerDisplay();
+  startTimer();
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+    
+    if (timeLeft === 5) {
+      playWarningSound();
+    }
+    
+    if (timeLeft === 0) {
+      playTimeoutSound();
+      clearInterval(timerInterval);
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const timerDisplay = document.getElementById('timerDisplay');
+  timerDisplay.innerText = timeLeft;
+  
+  if (timeLeft <= 5 && timeLeft > 0) {
+    timerDisplay.classList.add('warning');
+    timerDisplay.classList.remove('critical');
+  } else if (timeLeft === 0) {
+    timerDisplay.classList.add('critical');
+    timerDisplay.classList.remove('warning');
+  } else {
+    timerDisplay.classList.remove('warning');
+    timerDisplay.classList.remove('critical');
+  }
 }
 
 function nextMovie(event) {
