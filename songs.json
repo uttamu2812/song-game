@@ -180,5 +180,40 @@
         "prop": "Phone",
         "language": "Hindi",
         "spotify": "https://open.spotify.com/search/sweety%20tera%20drama"
+    },
+    {
+        "id": 27,
+        "title": "Kitabo Bohot Se Padi Hai",
+        "prop": "Books",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/kitabo%20bohot%20se%20padi%20hai"
+    },
+    {
+        "id": 28,
+        "title": "Mai Nikla Gaadi Leka",
+        "prop": "Car / Vehicle",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/mai%20nikla%20gaadi%20leka"
+    },
+    {
+        "id": 29,
+        "title": "Gorom Chai K Piyale Ho",
+        "prop": "Tea Cup / Hot Tea",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/gorom%20chai%20k%20piyale%20ho"
+    },
+    {
+        "id": 30,
+        "title": "Hum Tum Ek Kamre Mein Band Ho",
+        "prop": "Room / Key",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/hum%20tum%20ek%20kamre%20mein%20band%20ho"
+    },
+    {
+        "id": 31,
+        "title": "Tune Mari Entry ",
+        "prop": "Entrance / Bell",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/search/tune%20mari%20entry%20soni"
     }
 ]
