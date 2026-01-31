@@ -224,5 +224,12 @@
         "prop": "Cold Drink / Bottle",
         "language": "Hindi",
         "spotify": "https://open.spotify.com/search/cococola%20tu"
+    },
+        {
+        "id": 34,
+        "title": "Fevical ",
+        "prop": "Fevical",
+        "language": "Hindi",
+        "spotify": "https://open.spotify.com/track/0wEgK7RKkB1R6sR5Nrwh5g"
     }
 ]
