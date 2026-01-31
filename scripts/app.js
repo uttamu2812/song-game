@@ -15,6 +15,8 @@ $(document).ready(function() {
 function loadSongs() {
     $.getJSON('https://raw.githubusercontent.com/uttamu2812/song-game/refs/heads/main/songs.json', function(data) {
         songs = data;
+        // Update progress now that we know total songs
+        updateProgress();
     }).fail(function() {
         console.error('Error loading songs.json');
     });
@@ -93,6 +95,8 @@ function rollSong() {
             
             // Update history display
             updateRolledHistory();
+            // Also update progress badge
+            updateProgress();
             
             $('#rollResult').removeClass('hidden');
             $('#showBtn').removeClass('hidden');
@@ -117,6 +121,15 @@ function updateRolledHistory() {
     
     historyHTML += '</ul>';
     $('#rolledHistory').html(historyHTML);
+    // Update progress when history changes
+    updateProgress();
+}
+
+// Update the done/total progress badge
+function updateProgress() {
+    const total = Array.isArray(songs) ? songs.length : 0;
+    const uniqueDone = new Set(rolledSongs.map(s => s.id)).size;
+    $('#progress').text(uniqueDone + '/' + total);
 }
 
 function showSong() {
