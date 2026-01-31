@@ -18,28 +18,33 @@
         <div id="progress" class="progress-badge">0/0</div>
         
         <div class="game-section">
+            <div id="pairSection" class="pair-section">
+                <div class="pair-display">
+                    <span id="maleName" class="name-badge male">👨‍🦱 <span class="name-text"></span></span>
+                    <span id="femaleName" class="name-badge female">👩‍🦰 <span class="name-text"></span></span>
+                </div>
+                <button id="nextPairBtn" class="btn btn-next-pair">Next Pair</button>
+            </div>
             <button id="rollBtn" class="btn btn-roll">🎲 Roll Song</button>
-            
             <div id="rollResult" class="roll-result hidden">
                 <div class="song-number-display">
                     <p id="songNumber" class="song-number"></p>
                 </div>
                 <button id="showBtn" class="btn btn-show hidden">👁️ Show Song</button>
             </div>
-            
             <div id="songInfo" class="song-info hidden">
                 <div class="song-details">
                     <p><strong>Song:</strong> <span id="songTitle"></span></p>
                     <p><strong>Prop:</strong> <span id="propHint"></span></p>
                     <p><strong>Language:</strong> <span id="languageInfo"></span></p>
                 </div>
-                
                 <button id="playBtn" class="btn btn-play hidden">▶️ Play on Spotify</button>
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/pair-names.js"></script>
     <script src="scripts/app.js"></script>
 </body>
 </html>
