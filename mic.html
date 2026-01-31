@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mic to Wireless Speaker</title>
+  <style>
+    button, select {
+      padding: 10px;
+      margin: 5px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Play Mic Audio on Wireless Device</h2>
+
+<select id="outputSelect">
+  <option value="">Select Output Device</option>
+</select>
+
+<br>
+
+<button onclick="startMic()">Enable Mic</button>
+<button onclick="stopMic()">Disable Mic</button>
+
+<p id="status">OFF</p>
+
+<audio id="audioOutput" autoplay></audio>
+
+<script>
+  let audioContext;
+  let micStream;
+  let sourceNode;
+  let gainNode;
+  let destination;
+
+  const audioElement = document.getElementById("audioOutput");
+  const outputSelect = document.getElementById("outputSelect");
+
+  // Load output devices
+  async function loadOutputDevices() {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    outputSelect.innerHTML = "";
+
+    devices
+      .filter(device => device.kind === "audiooutput")
+      .forEach(device => {
+        const option = document.createElement("option");
+        option.value = device.deviceId;
+        option.text = device.label || "Audio Output";
+        outputSelect.appendChild(option);
+      });
+  }
+
+  outputSelect.addEventListener("change", async () => {
+    if (typeof audioElement.setSinkId === "function") {
+      await audioElement.setSinkId(outputSelect.value);
+      console.log("Output set to:", outputSelect.value);
+    } else {
+      alert("Output device selection not supported");
+    }
+  });
+
+  async function startMic() {
+    try {
+      micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+      audioContext = new AudioContext();
+
+      sourceNode = audioContext.createMediaStreamSource(micStream);
+
+      // Processing (volume boost)
+      gainNode = audioContext.createGain();
+      gainNode.gain.value = 1.1;
+
+      // Destination for audio element
+      destination = audioContext.createMediaStreamDestination();
+
+      sourceNode.connect(gainNode);
+      gainNode.connect(destination);
+
+      audioElement.srcObject = destination.stream;
+
+      await loadOutputDevices();
+
+      document.getElementById("status").innerText = "Microphone ON 🎤";
+    } catch (err) {
+      console.error(err);
+      alert("Microphone access failed");
+    }
+  }
+
+  function stopMic() {
+    if (micStream) {
+      micStream.getTracks().forEach(track => track.stop());
+      micStream = null;
+    }
+
+    if (audioContext) {
+      audioContext.close();
+      audioContext = null;
+    }
+
+    audioElement.srcObject = null;
+    document.getElementById("status").innerText = "OFF 🔇";
+  }
+</script>
+
+</body>
+</html>
